@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS `#__jobApplications`;
+
+CREATE TABLE `#__jobApplications` 
+	(
+	`id`		INT(11)		NOT NULL AUTO_INCREMENT,
+	`fname`		VARCHAR(30)	NOT NULL,
+	`lname`		VARCHAR(30)	NOT NULL,
+	PRIMARY KEY (`id`)
+	)
+
+	ENGINE =MyISAM
+	AUTO_INCREMENT =0
+	DEFAULT CHARSET =utf8;
+

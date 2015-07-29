@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="jobApplications">
+		<message>This is jobApplications view xml</message>
+	</layout>
+	<fields
+			name="request"
+			addfieldpath="/administrator/components/com_jobApplications/models/fields"
+			>
+		<fieldset name="request">
+			<field
+					name="id"
+					type="jobApplications"
+					label="jobApplicationsLabel"
+					description="jobApplicationsFieldDescription"
+					/>
+		</fieldset>
+	</fields>
+</metadata>
