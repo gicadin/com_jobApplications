@@ -50,7 +50,6 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 	?>
 		<form action="<?php echo $link; ?>" method="POST">
 		<input type="hidden" name="id" value="<?php echo (int)$this->results[$i]->id; ?>">
-		<input type="hidden" name="name" value="<?php echo (string)$this->results[$i]->fname; ?>">
 	<?php 
 		echo "<button type='button' class='btn btn-default' style='float:right;'>Delete</button>";
 		// echo "<button type='button' class='btn btn-default' style='float:right;'>Add to Favorites</button>";
@@ -73,7 +72,7 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 
 
 
-<a href="<?php echo $link; ?>"> <h1> MUIE </h1> </a>
+<!-- <a href="<?php // echo $link; ?>"> <h1> MUIE </h1> </a> --> 
 
 
 

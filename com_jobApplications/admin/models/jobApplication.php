@@ -26,7 +26,8 @@ class jobApplicationsModeljobApplication extends JModelList
 		$query  = $db->getQuery(true) ; 
 
 		$query->from($db->quoteName('#__jobApplications'));
-		$query->select($db->quoteName(array('id', 'date', 'jobTitle', 'fname', 'lname', 'experience', 'referedBy', 'summary')));
+		$query->select($db->quoteName(array('id', 'date', 'jobTitle', 'fname', 'lname', 'experience', 'referedBy', 'summary',
+											'email', 'phoneNumber', 'otherNumber', 'address', 'zipCode')));
 		$query->where($db->quoteName('id'). " = " . "$input");
 
 		$db->setQuery($query);

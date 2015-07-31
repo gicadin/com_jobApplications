@@ -7,7 +7,7 @@
 	<author>Gicadin, Andrei Hristea</author>
 
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<!-- The description is optional and defaults to the name -->
 	
  	
@@ -36,6 +36,9 @@
 	<files folder="site">
 		<filename>index.html</filename>
 		<filename>jobApplications.php</filename>
+		<filename>controller.php</filename>
+		<folder>views</folder>
+		<folder>models</folder>
 	</files>
  
 	<administration>
