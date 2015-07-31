@@ -13,6 +13,9 @@ $controller = JControllerLegacy::getInstance('jobApplications');
  
 // Perform the Request task
 $controller->execute(JFactory::getApplication()->input->get('task'));
+
+// Load jquery framework
+JHtml::_('jquery.framework', false);
  
 // Redirect if set by the controller
 $controller->redirect();

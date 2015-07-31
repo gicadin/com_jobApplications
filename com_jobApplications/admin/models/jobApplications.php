@@ -1,6 +1,6 @@
 <?php
 /**
- * jobApplications model
+ * Applications Model
  *
  */
 // No direct access to this file
@@ -102,5 +102,10 @@ class jobApplicationsModeljobApplications extends JModelList
 		$numOfRows = $db->getNumRows();
 
 		return $numOfRows;
+	}
+
+	function deleteApplication($input)
+	{
+		
 	}
 }

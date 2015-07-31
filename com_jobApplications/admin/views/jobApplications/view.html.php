@@ -39,6 +39,10 @@ class jobapplicationsViewjobApplications extends JViewLegacy
  		$this->numOfRows = $this->get("ApplicationsNumber");
 		$this->results = $this->get("ApplicationsQuery");
 
+		$model = $this->getModel();
+		$this->deleteApplication = $model->deleteApplication($_POST['id']);
+
+
 		$this->addToolBar();
 
 		// Display the template
