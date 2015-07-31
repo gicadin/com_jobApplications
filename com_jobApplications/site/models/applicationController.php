@@ -19,9 +19,12 @@ class jobApplicationsModelapplicationController extends JModelList
 
 		$query = $db->getQuery(true); 
 
-		$columns = array('fname', 'lname'); //, 'email', 'phoneNumber', 'otherNumber', 'address', 'zipCode');
+		$columns = array('fname', 'lname', 'email', 'phoneNumber', 'otherNumber', 'address', 'zipCode');
 
-		$values = array( $input[0], $input[1]);
+		$values = array( $db->quote((string)$input[0]), $db->quote((string)$input[1]),
+						 $db->quote((string)$input[2]), $db->quote((string)$input[3]),
+						 $db->quote((string)$input[4]), $db->quote((string)$input[5]),
+						 $db->quote((string)$input[6]) );
 
 		$query->insert($db->quoteName('#__jobApplications'))
 			->columns($db->quoteName($columns))
