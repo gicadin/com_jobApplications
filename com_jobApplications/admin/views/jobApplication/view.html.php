@@ -49,6 +49,7 @@ defined('_JEXEC') or die('Restricted access');
 	protected function addToolBar()
 	{
 		JToolBarHelper::title(JText::_("Job Application"));
+		JToolBarHelper::back('Back'); 
 		
 	}
  }

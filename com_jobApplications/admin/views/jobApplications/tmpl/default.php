@@ -5,8 +5,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 
-
-
 $link = JRoute::_('index.php?option=com_jobApplications&view=jobApplication');
 
 // Displays the last 100 applications	
@@ -16,13 +14,13 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 ?>
 	<div class='container' id='container-<?php echo (string)$this->results[$i]->id; ?>'> 
 
-<?php 	
+	<div class='row'>
+		<div class='span6'>
+		<?php echo (string)$this->results[$i]->jobTitle; ?>
+		</div> </br></br>
+	</div>
 
-	echo "<div class='row'>";
-		echo "<div class='span6'>";
-		echo (string)$this->results[$i]->jobTitle;
-		echo "</div> </br></br>";
-	echo "</div>";
+<?php 	
 
 	echo "<div class='row'>";
 		echo "<div class='span6'>";
@@ -45,13 +43,13 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 	echo "</div>";
 
 	echo "<div class='row'>";
-		echo "<div class='span10'>";
+		echo "<div class='span12'>";
 		echo "Summary: </br> " . (string)$this->results[$i]->summary; 
 		echo "</div>";
 	echo "</div>";
 
 	echo "<div class='row'>";
-		echo "<div class='span10 align-right'>";
+		echo "<div class='span12 align-right'>";
 		
 	?>
 		<form action="<?php echo $link; ?>" method="POST">
@@ -81,8 +79,6 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 <script>
 	function ajaxDeleteEvent(finput)
 	{
-
-		console.log("ce faci muie? citesti consola?");
 		$.ajax({
 			url:"index.php?option=com_jobApplications&task=deleteApplication&id", 
 			method:'POST',
@@ -96,11 +92,10 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 			error:
 				function(e)
 				{	
-					console.log("u messed up");
+					console.log("u done goofed");
 					console.log(e.message);
 				}
 		});
-
 	}
 </script>
 
