@@ -11,6 +11,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.2
  */
+
 class jobApplicationsModeljobApplications extends JModelList
 {
 	/**
@@ -104,8 +105,10 @@ class jobApplicationsModeljobApplications extends JModelList
 		return $numOfRows;
 	}
 
+	/*
 	function deleteApplication($input)
 	{
-		
+		echo "$input"; 
 	}
+	*/
 }

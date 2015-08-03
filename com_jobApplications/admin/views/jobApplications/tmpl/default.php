@@ -12,8 +12,12 @@ $link = JRoute::_('index.php?option=com_jobApplications&view=jobApplication');
 // Displays the last 100 applications	
 for($i = $this->numOfRows-1; $i >= 0; $i--)
 {	
-	echo "<div class='container'> ";
-	
+
+?>
+	<div class='container' id='container-<?php echo (string)$this->results[$i]->id; ?>'> 
+
+<?php 	
+
 	echo "<div class='row'>";
 		echo "<div class='span6'>";
 		echo (string)$this->results[$i]->jobTitle;
@@ -53,7 +57,7 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 		<form action="<?php echo $link; ?>" method="POST">
 		<input type="hidden" name="id" value="<?php echo (int)$this->results[$i]->id; ?>">
 	
-		<button type='button' class='btn btn-default' style='float:right;' onclick="ajaxDeleteEvent(<?php echo (int)$this->results[$i]; ?>)">Delete</button>
+		<button type='button' class='btn btn-default' style='float:right;' onclick='ajaxDeleteEvent(<?php echo (int)$this->results[$i]->id; ?>)'>Delete</button>
 		
 	<?php 
 		// echo "<button type='button' class='btn btn-default' style='float:right;'>Add to Favorites</button>";
@@ -75,21 +79,25 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 ?>
 
 <script>
-	function ajaxDeleteEvent(input)
+	function ajaxDeleteEvent(finput)
 	{
+
 		console.log("ce faci muie? citesti consola?");
 		$.ajax({
-			type: "POST",
-			url:"administrator/index.php?option=com_jobapplications", 
-			data: 
-			{
-				'id' = input; 
-			},
+			url:"index.php?option=com_jobApplications&task=deleteApplication&id", 
+			method:'POST',
+			data: "id="+finput,
 			success:
-				function(result)
+				function(data)
 				{
-					$("body").html("muie"); 
-					console.log(input);
+					$("#container-"+finput).remove();
+					console.log(data); 
+				},
+			error:
+				function(e)
+				{	
+					console.log("u messed up");
+					console.log(e.message);
 				}
 		});
 
