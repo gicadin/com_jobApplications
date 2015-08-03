@@ -18,7 +18,7 @@ defined('_JEXEC') or die('Restricted Access');
 
 	<div class="row">
 		<div class="span12">
-			Name: <?php echo (string)$this->results[0]->fname . " " . (string)$this->results[0]->lname; ?>
+			<?php echo (string)$this->results[0]->fname . " " . (string)$this->results[0]->lname; ?>
 		</div>
 	</div> <!-- row --> 
 
