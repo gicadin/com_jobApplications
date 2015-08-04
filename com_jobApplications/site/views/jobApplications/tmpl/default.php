@@ -9,62 +9,6 @@ defined('_JEXEC') or die('Restricted access');
 
 ?>
 
-<style>
-
-	/* CUSTOM FIELDS */ 
-
-	.cfdiv_text, .cfdiv_select {
-	 padding: 0;
-	 margin-bottom: 0;
-	}
-
-	.longTextBox {
-		width: 620px;
-	}
-
-	.shortTextBox {
-		width: 220px;
-	}
-
-	@media (max-width: 1199px) {
-		.longTextBox {
-			width: 220px;
-		}
-	}
-
-	/* LIGHT BOX */ 
-
-	#lightbox {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		width: 500px;
-		margin-left: -250px;
-		background: #fff;
-		z-index: 1001;
-		display: none;
-	}
-	#lightbox-shadow {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: #000;
-		filter: alpha(opacity=75);
-		-moz-opacity: 0.75;
-		-khtml-opacity: 0.75;
-		opacity: 0.75;
-		z-index: 1000;
-		display: none;
-	}
-
-
-/* CHRONOFORM STYLE HERE */ 
-
-
-
-</style>
 
 <script>
 
@@ -92,7 +36,7 @@ console.log(x);
 			<div class="ccms_form_element cfdiv_text" id="name_container_div" style="">
 			 <label for="name">Job ID: </label>
 			 <input placeholder="<?php echo $_COOKIE["jobCode"]; ?>" id="jobID" maxlength="150" size="30" class="shortTextBox" title="" type="text" container_id="0" value="" name="name" readonly />
-			 <div class="clear"></div>
+			 
 			 <div id="error-message-name"></div>
 			</div>
 		</div>
@@ -101,69 +45,68 @@ console.log(x);
 			<div class="ccms_form_element cfdiv_text" id="name_container_div" style="">
 			 <label for="name">Job Title: </label>
 			 <input placeholder="<?php echo $_COOKIE["jobTitle"]; ?>" id="jobTitle" maxlength="150" size="30" class="shortTextBox" title="" type="text" container_id="0" value="" name="name" readonly />
-			 <div class="clear"></div>
+			 
 			 <div id="error-message-name"></div>
 			</div>
 		</div>
 		--> 
 
-		<div class="clear"></div>
+		
 		<p style="margin-left:30px;">Please complete the necessary fields below:</p>
-		<div class="clear"></div>
+		
 		
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_text" id="name_container_div" style="">
+			
 			 <label for="name">First Name: </label>
 			 <input placeholder="John" id="name" maxlength="150" size="30" class="shortTextBox validate['required']" title="" type="text" container_id="0" value="" name="fname" />
-			 <div class="clear"></div>
-			 <div id="error-message-name"></div>
-			</div>
+			 
+			
+
 		</div>
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_text" id="last_name_container_div" style="">
+			
 			 <label for="last_name">Last Name: </label>
 			 <input id="last_name" maxlength="150" size="30" class="shortTextBox validate['required']" title="" type="text" container_id="0" value="" name="lname" />
-			 <div class="clear"></div>
-			 <div id="error-message-last_name"></div>
-			</div>
+			 
+			
+		
 		</div>
 
 		<div class="span9">
-			<div class="ccms_form_element cfdiv_text" id="email_container_div" style="">
+			
 			 <label for="email">Email: </label>
 			 <input placeholder="JohnDoe@email.com" id="email" maxlength="150" size="150" class=" validate['required','email'] longTextBox" title="" type="text" container_id="0" value="" name="email" />
-			 <div class="clear"></div>
-			 <div id="error-message-email"></div>
-			</div>
+			 
+			 
+
 		</div>
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_text" id="phone_container_div" style="">
+			
 			 <label for="phone">Contact Number: </label>
 			 <input placeholder="987-765-4321" id="phone" maxlength="150" size="30" class="shortTextBox validate['phone']" title="" type="text" container_id="0" value="" name="phoneNumber" />
-			 <div class="clear"></div>
-			 <div id="error-message-phone"></div>
-			</div>
+			 
+		
 		</div>
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_text" id="fax_container_div" style="">
+			
 			<label for="phone2">Other Number: </label>
 			<input placeholder="987-765-4321" id="phone2" maxlength="150" size="30" class="shortTextBox validate['phone']" title="" type="text" container_id="0" value="" name="otherNumber" />
-			<div class="clear"></div>
-		    <div id="error-message-phone"></div>
-			</div>
+			
+		    
+			
 		</div>
 
 		<div class="span9">
-			<div class="ccms_form_element cfdiv_text" id="address1_container_div" style="">
+			
 			<label for="address1">Address: </label>
 			<input placeholder="987 - Street Name" id="address1" maxlength="150" size="30" class="longTextBox" title="" type="text" container_id="0" value="" name="address" />
-			<div class="clear"></div>
-			<div id="error-message-address1"></div>
-			</div>
+			
+			
+		
 		</div>
 
 		<!-- 
@@ -171,14 +114,14 @@ console.log(x);
 			<div class="ccms_form_element cfdiv_text" id="address2_container_div" style="">
 			 <label for="address2"> </label>
 			 <input id="address2" maxlength="150" size="30" class="" title="" type="text" container_id="0" value="" name="address2" />
-			 <div class="clear"></div>
+			 
 			 <div id="error-message-address2"></div>
 			</div>
 		</div>
 		-->
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_select" id="country_container_div" style="">
+			
 			 <label for="country">Country: </label>
 			 <select size="1" id="country" class="" title="" container_id="0" name="country">
 			 <option value="" selected="selected">Choose Country</option>
@@ -424,13 +367,12 @@ console.log(x);
 			 <option value="ZM">Zambia</option>
 			 <option value="ZW">Zimbabwe</option>
 			 </select>
-			 <div class="clear"></div>
-			 <div id="error-message-country"></div>
-			</div>
+			 
+		
 		</div>
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_select" id="state_province_container_div" style="">
+			
 			 <label for="state_province">State / Province:</label>
 			 <select size="1" id="state_province" class="" title="" container_id="0" name="state_province">
 			 <option value="" selected="selected">Choose State / Province</option>
@@ -510,37 +452,32 @@ console.log(x);
 			 <option value="">--</option>
 			 <option value="OT">Other</option>
 			 </select>
-			 <div class="clear"></div>
-			 <div id="error-message-state_province"></div>
-			</div>
+			 
 		</div>
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_text" id="zip_postal_container_div" style="">
+			
 			 <label for="zip_postal">Zip / Postal: </label>
 			 <input placeholder="98765" id="zip_postal" maxlength="150" size="30" class="shortTextBox" title="" type="text" container_id="0" value="" name="zipCode" />
-			 <div class="clear"></div>
-			 <div id="error-message-zip_postal"></div>
-			</div>
+			 
+		
 		</div>
 
 		<div class="span4">
-			<div class="ccms_form_element cfdiv_text" id="city_town_container_div" style="">
+			
 			 <label for="city_town">City / Town: </label>
 			 <input placeholder="Vancouver" id="city_town" maxlength="150" size="30" class="shortTextBox" title="" type="text" container_id="0" value="" name="city_town" />
-			 <div class="clear"></div>
-			 <div id="error-message-city_town"></div>
-			</div>
+			 
+			
 		</div>
  
 		<div class="span9"> <p> By pressing 'Submit' you agree that all submitted information above is correct and you agree to Thompson Creek Metals Terms of Policy. </p> </div> 
 					
 		<div class="span9 center">
-			<div class="" id="autoID-18eb268ba3a0ed8b1523f86079c325c5_container_div" style="text-align:left">
+			
 			 <input name="Submit" class="btn" value="Submit" type="submit" container_id="0" />
-			 <div class="clear"></div>
-			 <div id="error-message-Submit"></div>
-			</div>
+			 
+		
 		</div>
 		
 	</form>
