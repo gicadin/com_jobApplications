@@ -5,7 +5,7 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 
-$link = JRoute::_('index.php?option=com_jobApplications&view=jobApplication');
+$link = JRoute::_('index.php?option=com_jobapplications&view=jobApplication');
 
 // Displays the last 100 applications	
 for($i = $this->numOfRows-1; $i >= 0; $i--)

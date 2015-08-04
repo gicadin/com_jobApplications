@@ -23,14 +23,12 @@ console.log(x);
 
 	<div class="container">
 
-	<?php $link = "index.php?option=com_jobApplications&view=applicationController"; ?>
+	<?php $link = "index.php?option=com_jobapplications&view=applicationController"; ?>
 
 	<form action="<?php echo $link; ?>" method="POST"> 
+				
+		<h2 style="margin-left:30px;" class="title"><a>Job Application</a></h2>
 		
-		<div class="ccms_form_element cfdiv_header" id="autoID-963496dfab96dca73824e5b5e63dc230_container_div" style="">
-		<h2 class="title"><a>Job Application</a></h2>
-		</div>
-
 		<!-- 
 		<div class="span4">
 			<div class="ccms_form_element cfdiv_text" id="name_container_div" style="">
@@ -54,59 +52,34 @@ console.log(x);
 		
 		<p style="margin-left:30px;">Please complete the necessary fields below:</p>
 		
-		
-
 		<div class="span4">
-			
 			 <label for="name">First Name: </label>
-			 <input placeholder="John" id="name" maxlength="150" size="30" class="shortTextBox validate['required']" title="" type="text" container_id="0" value="" name="fname" />
-			 
-			
-
+			 <input placeholder="required" id="fname" maxlength="150" size="30" type="text" value="" name="fname" />
 		</div>
 
-		<div class="span4">
-			
+		<div class="span4">		
 			 <label for="last_name">Last Name: </label>
-			 <input id="last_name" maxlength="150" size="30" class="shortTextBox validate['required']" title="" type="text" container_id="0" value="" name="lname" />
-			 
-			
-		
+			 <input placeholder="required" id="lname" maxlength="150" size="30" type="text" value="" name="lname" />	
 		</div>
 
 		<div class="span9">
-			
 			 <label for="email">Email: </label>
-			 <input placeholder="JohnDoe@email.com" id="email" maxlength="150" size="150" class=" validate['required','email'] longTextBox" title="" type="text" container_id="0" value="" name="email" />
-			 
-			 
-
+			 <input placeholder="required" id="email" maxlength="150" size="150" type="text" value="" name="email" />
 		</div>
 
 		<div class="span4">
-			
 			 <label for="phone">Contact Number: </label>
-			 <input placeholder="987-765-4321" id="phone" maxlength="150" size="30" class="shortTextBox validate['phone']" title="" type="text" container_id="0" value="" name="phoneNumber" />
-			 
-		
+			 <input placeholder="required" id="phone" maxlength="150" size="30" type="text" value="" name="phoneNumber" />
 		</div>
 
 		<div class="span4">
-			
 			<label for="phone2">Other Number: </label>
-			<input placeholder="987-765-4321" id="phone2" maxlength="150" size="30" class="shortTextBox validate['phone']" title="" type="text" container_id="0" value="" name="otherNumber" />
-			
-		    
-			
+			<input id="phone2" maxlength="150" size="30" type="text" name="otherNumber" />
 		</div>
 
-		<div class="span9">
-			
+		<div class="span9">	
 			<label for="address1">Address: </label>
-			<input placeholder="987 - Street Name" id="address1" maxlength="150" size="30" class="longTextBox" title="" type="text" container_id="0" value="" name="address" />
-			
-			
-		
+			<input  id="address1" maxlength="150" size="30" class="longTextBox" title="" type="text" container_id="0" value="" name="address" />
 		</div>
 
 		<!-- 
@@ -123,7 +96,7 @@ console.log(x);
 		<div class="span4">
 			
 			 <label for="country">Country: </label>
-			 <select size="1" id="country" class="" title="" container_id="0" name="country">
+			 <select size="1" id="country" name="country">
 			 <option value="" selected="selected">Choose Country</option>
 			 <option value="">--</option>
 			 <option value="CA">Canada</option>
@@ -374,7 +347,7 @@ console.log(x);
 		<div class="span4">
 			
 			 <label for="state_province">State / Province:</label>
-			 <select size="1" id="state_province" class="" title="" container_id="0" name="state_province">
+			 <select size="1" id="state_province" name="state_province">
 			 <option value="" selected="selected">Choose State / Province</option>
 			 <option value="">--</option>
 			 <option value="AB">Alberta</option>
@@ -458,26 +431,24 @@ console.log(x);
 		<div class="span4">
 			
 			 <label for="zip_postal">Zip / Postal: </label>
-			 <input placeholder="98765" id="zip_postal" maxlength="150" size="30" class="shortTextBox" title="" type="text" container_id="0" value="" name="zipCode" />
+			 <input placeholder="98765" id="zip_postal" maxlength="150" size="30" type="text" name="zipCode" />
 			 
-		
 		</div>
 
-		<div class="span4">
-			
+		<div class="span4">	
 			 <label for="city_town">City / Town: </label>
 			 <input placeholder="Vancouver" id="city_town" maxlength="150" size="30" class="shortTextBox" title="" type="text" container_id="0" value="" name="city_town" />
-			 
-			
 		</div>
- 
-		<div class="span9"> <p> By pressing 'Submit' you agree that all submitted information above is correct and you agree to Thompson Creek Metals Terms of Policy. </p> </div> 
+
+		<?php $currentDate = date("Y-m-d"); ?>
+		<input type="hidden" name="date" value="<?php echo $currentDate; ?>"> 
+ 		
+		<div class="span9"> 
+			<p> By pressing 'Submit' you agree that all submitted information above is correct and you agree to Thompson Creek Metals Terms of Policy. </p> 
+		</div> 
 					
 		<div class="span9 center">
-			
-			 <input name="Submit" class="btn" value="Submit" type="submit" container_id="0" />
-			 
-		
+			 <input name="Submit" class="btn" value="Submit" type="submit" container_id="0" />	
 		</div>
 		
 	</form>
