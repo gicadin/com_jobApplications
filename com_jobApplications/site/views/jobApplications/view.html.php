@@ -10,8 +10,7 @@ class jobapplicationsViewjobApplications extends JViewLegacy
 {
 	function display($tpl = null)
 	{
-		$this->msg = 'Test';
-
+		
 		parent::display($tpl);
 	}
 }

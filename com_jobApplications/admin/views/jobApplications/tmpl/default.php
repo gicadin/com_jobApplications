@@ -64,7 +64,7 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 		echo "</div>";
 	echo "</div>";
 
-	echo "</div></br>";
+	echo "</br></div>";
 
 	/*
 	echo "Date Applied: " .  

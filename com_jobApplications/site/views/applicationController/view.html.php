@@ -11,14 +11,14 @@ class jobapplicationsViewapplicationController extends JViewLegacy
 {
 	function display($tpl = null)
 	{
-		$this->msg = 'test';
-
 		$input = array($_POST['fname'], $_POST['lname'], $_POST['email'],
 						$_POST['phoneNumber'], $_POST['otherNumber'],
 						$_POST['address'], $_POST['zipCode'], $_POST['date'] );
 
 		$model = $this->getModel();
 		$this->results = $model->addContactListToDB($input);
+
+		$this->applicationId = $model->getID(); 
 
 		parent::display($tpl); 
 	}

@@ -13,10 +13,13 @@ defined('_JEXEC') or die('Restricted access');
  */
 class jobApplicationsModelapplicationController extends JModelList
 {
+
+	var $applicationId = 0; 
+
 	public function addContactListToDB($input)
 	{
-		$db = JFactory::getDbo();
 
+		$db = JFactory::getDbo();
 		$query = $db->getQuery(true); 
 
 		$columns = array('fname', 'lname', 'email', 'phoneNumber', 'otherNumber', 'address', 'zipCode', 'date');
@@ -28,9 +31,17 @@ class jobApplicationsModelapplicationController extends JModelList
 
 		$query->insert($db->quoteName('#__jobApplications'))
 			->columns($db->quoteName($columns))
-			->values(implode(',', $values)); 
+			->values(implode(',', $values)); 	
 
 		$db->setQuery($query);
+
 		$db->execute(); 
+
+		$this->applicationId = $db->insertid(); 
+	}
+
+	public function getID()
+	{
+		return $this->applicationId; 
 	}
 }
