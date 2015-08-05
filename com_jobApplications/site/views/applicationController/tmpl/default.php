@@ -39,13 +39,12 @@ defined('_JEXEC') or die('Restricted access');
 
 		<!-- NOT IMPLEMENTED YET --> 
 		<!-- NOT IMPLEMENTED YET --> 
-		<!-- 
+		 
 		<div class="span4">
 			<label for="resume">Upload Resume: </label>
-			<input type="file" name="resume" id="resume" />
+			<input type="file" name="file" id="file" />
 		</div>
-		-->
-
+		
 		<input type="hidden" name="id" value="<?php echo $this->applicationId; ?>" />
 
 		<div class="span8 center">

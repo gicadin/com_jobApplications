@@ -11,7 +11,7 @@ CREATE TABLE `#__jobApplications`
 	`lname`			VARCHAR(30)		NOT NULL,
 	`experience`	VARCHAR(10)		NOT NULL,
 	`referedBy`		VARCHAR(50)		NOT NULL,
-	`summary`		VARCHAR(1000)	NOT NULL,
+	`summary`		VARCHAR(2555)	NOT NULL,
 
 	`email`			VARCHAR(30)		NOT NULL,
 	`phoneNumber`	VARCHAR(30)		NOT NULL,
@@ -19,10 +19,14 @@ CREATE TABLE `#__jobApplications`
 	`address`		VARCHAR(50)		NOT NULL,
 	`zipCode`		VARCHAR(30)		NOT NULL,
 
-	`description`	VARCHAR(1000)	NOT NULL,
+	`description`	VARCHAR(2555)	NOT NULL,
 	`jobExperience`	VARCHAR(1000)	NOT NULL,
-	`education`		VARCHAR(1000)	NOT NULL,
-	`skills`		VARCHAR(1000)	NOT NULL,
+	`education`		VARCHAR(255)	NOT NULL,
+	`skills`		VARCHAR(2555)	NOT NULL,
+
+	`file`			VARCHAR(100) 	NOT NULL,
+	`type`			VARCHAR(25)		NOT NULL,
+	`size`			INT 			NOT NULL,
 
 	PRIMARY KEY (`id`)
 	)

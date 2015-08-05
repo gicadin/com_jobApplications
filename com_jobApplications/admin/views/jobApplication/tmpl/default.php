@@ -37,16 +37,16 @@ defined('_JEXEC') or die('Restricted Access');
 	<br> 
 	<div class="row">
 		<div class="span12">
-			Description:
+			Description: 
 		</div>
 		<div class="span12">
-
+			<?php echo (string)$this->results[0]->description ?> 
 		</div>
 	</div> <!-- row --> 
 	
 	<div class="row">
 		<div class="span12">
-			Experience:
+			Experience: <?php echo (string)$this->results[0]->experience ?> 
 		</div>
 		<div class="span12">
 
@@ -55,10 +55,10 @@ defined('_JEXEC') or die('Restricted Access');
 
 	<div class="row">
 		<div class="span12">
-			Education:
+			Education: 
 		</div>
 		<div class="span12">
-
+			<?php echo (string)$this->results[0]->education ?> 
 		</div>
 	</div> <!-- row --> 
 
@@ -67,7 +67,7 @@ defined('_JEXEC') or die('Restricted Access');
 			Skills:
 		</div>
 		<div class="span12">
-
+			<?php echo (string)$this->results[0]->skills ?> 
 		</div>
 	</div> <!-- row --> 
 

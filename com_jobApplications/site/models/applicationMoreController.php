@@ -19,18 +19,15 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true); 
 
-		$columns = array('experience', 'referedBy', 'summary', 'education', 'skills');
-
-		$values = array( $db->quote((string)$input[0]), $db->quote((string)$input[1]),
-						 $db->quote((string)$input[2]), $db->quote((string)$input[3]),
-						 $db->quote((string)$input[4]) );
-
 		$fields = array( $db->quoteName('experience') . ' = ' . $db->quote((string)$input[0]),
 						$db->quoteName('referedBy') . ' = ' . $db->quote((string)$input[1]),
 						$db->quoteName('summary') . ' = ' . $db->quote((string)$input[2]),
 						$db->quoteName('education') . ' = ' . $db->quote((string)$input[3]),
 						$db->quoteName('skills') . ' = ' . $db->quote((string)$input[4]) 
 						);
+
+		echo "muie";
+		echo var_dump($input[5]); 
 
 		$query->update($db->quoteName('#__jobApplications'))->set($fields)->where($db->quoteName('id') . ' = ' . $db->quote($id)); 
 

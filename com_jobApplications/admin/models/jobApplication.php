@@ -27,11 +27,11 @@ class jobApplicationsModeljobApplication extends JModelList
 
 		$query->from($db->quoteName('#__jobApplications'));
 		$query->select($db->quoteName(array('id', 'date', 'jobTitle', 'fname', 'lname', 'experience', 'referedBy', 'summary',
-											'email', 'phoneNumber', 'otherNumber', 'address', 'zipCode')));
+											'email', 'phoneNumber', 'otherNumber', 'address', 'zipCode',
+											'description', 'jobExperience', 'education', 'skills')));
 		$query->where($db->quoteName('id'). " = " . "$input");
 
 		$db->setQuery($query);
-
 		$results = $db->loadObjectList(); 
 
 		//mail("developer@sandmanmedia.com", "muie", "suie"); 
