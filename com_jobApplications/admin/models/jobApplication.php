@@ -23,7 +23,7 @@ class jobApplicationsModeljobApplication extends JModelList
 		//$input = 2;
 
 		$db		= JFactory::getDbo();
-		$query  = $db->getQuery(true) ; 
+		$query  = $db->getQuery(true); 
 
 		$query->from($db->quoteName('#__jobApplications'));
 		$query->select($db->quoteName(array('id', 'date', 'jobTitle', 'fname', 'lname', 'experience', 'referedBy', 'summary',
@@ -37,5 +37,26 @@ class jobApplicationsModeljobApplication extends JModelList
 		//mail("developer@sandmanmedia.com", "muie", "suie"); 
 
 		return $results; 
+	}
+
+	/* 
+	* Queries the database for resume, 
+	* input is id of row to look for
+	* Returns an array that contains the mime and blob data
+	*/ 
+	function getResume($input)
+	{
+		$db		= JFactory::getDbo();
+		$query  = $db->getQuery(true); 
+
+		$query->from($db->quoteName('#__jobApplications'));
+		$query->select($db->quoteName(array('fileType', 'fileContent')));
+		$query->where($db->quoteName('id'). " = " . "$input");
+
+		$db->setQuery($query);
+		$results = $db->loadObjectList(); 
+
+		return $results;
+
 	}
 }

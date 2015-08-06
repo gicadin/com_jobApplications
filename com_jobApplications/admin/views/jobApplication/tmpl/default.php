@@ -71,6 +71,20 @@ defined('_JEXEC') or die('Restricted Access');
 		</div>
 	</div> <!-- row --> 
 
+	<div class="row">
+		<a href="index.php?option=com_jobapplications&view=resume?idNumber=<?php echo $_POST['id']; ?>">
+		<button type='button' class='btn btn-default' onclick='#'>View Resume</button>
+		</a>
+		
+		<?php 
+			var_dump($this->resume);
+			echo (string)$this->resume[0]->fileType;
+			//header("Content-type: ".(string)$this->resume[0]->fileType);
+			//echo $this->resume[0]->fileContent; 
+		?>	
+	</div>
+
+
 </div> <!-- container --> 
 
 

@@ -40,6 +40,8 @@ defined('_JEXEC') or die('Restricted access');
 		$model = $this->getModel();
 		$this->results = $model->getApplicantQuery($_POST['id']); 
 
+		$this->resume = $model->getResume($_POST['id']); 
+
 		$this->addToolBar();
 
 		// Display the template

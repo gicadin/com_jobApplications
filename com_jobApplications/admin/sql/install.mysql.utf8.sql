@@ -24,9 +24,10 @@ CREATE TABLE `#__jobApplications`
 	`education`		VARCHAR(255)	NOT NULL,
 	`skills`		VARCHAR(2555)	NOT NULL,
 
-	`file`			VARCHAR(100) 	NOT NULL,
-	`type`			VARCHAR(25)		NOT NULL,
-	`size`			INT 			NOT NULL,
+	`fileName`		VARCHAR(100) 	NOT NULL,
+	`fileType`		VARCHAR(25)		NOT NULL,
+	`fileSize`		INT 			NOT NULL,
+	`fileContent`	MEDIUMBLOB		NOT NULL,
 
 	PRIMARY KEY (`id`)
 	)
