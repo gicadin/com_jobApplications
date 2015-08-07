@@ -25,15 +25,21 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 		{
 			if ($this->checkExtension($input[5]))
 			{
-				// Read file content
-				$fp = fopen($input[5]['tmp_name'], 'r');
-				$content = fread($fp, filesize($input[5]['tmp_name']));
-				$content = addslashes($content);
-				fclose($fp);
-
 				// Rename file for security 
 				$temp = explode(".", $input[5]['name']); 
 				$newname = round(microtime(true)) . '.' . end($temp);
+
+				$uploadDirectory = 'administrator/components/com_jobapplications/uploads';
+				$uploadFile = $uploadDirectory . basename($input[5]['name']) ; 
+
+				echo $uploadFile; 
+
+				if (move_uploaded_file($input[5]['tmp_name'], $uploadFile))
+				{
+					echo " file is valid and uploaded to directory";
+				} else {
+					echo "file not uploaded"; 
+				}
 
 				$fields = array( $db->quoteName('experience') . ' = ' . $db->quote((string)$input[0]),
 					$db->quoteName('referedBy') . ' = ' . $db->quote((string)$input[1]),
@@ -43,7 +49,7 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 					$db->quoteName('fileName') . ' =' . $db->quote($newname),
 					$db->quoteName('fileType') . ' =' . $db->quote((string)$input[5]['type']),
 					$db->quoteName('fileSize') . ' = ' . $db->quote((string)$input[5]['size']),
-					$db->quoteName('fileContent') . ' = ' . $db->quote($content)
+					//$db->quoteName('fileContent') . ' = ' . $db->quote($content)
 					);
 
 			} else {
@@ -84,7 +90,6 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 			return false;
 		}
 			
-
 		switch ($fileinfo) 
 		{
 			case 'application/pdf':		

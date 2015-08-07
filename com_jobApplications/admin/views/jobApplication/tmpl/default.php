@@ -78,7 +78,7 @@ defined('_JEXEC') or die('Restricted Access');
 		
 		<?php 
 			var_dump($this->resume);
-			echo (string)$this->resume[0]->fileType;
+			//echo (string)$this->resume[0]->fileType;
 			//header("Content-type: ".(string)$this->resume[0]->fileType);
 			//echo $this->resume[0]->fileContent; 
 		?>	
