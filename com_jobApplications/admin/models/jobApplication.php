@@ -50,7 +50,7 @@ class jobApplicationsModeljobApplication extends JModelList
 		$query  = $db->getQuery(true); 
 
 		$query->from($db->quoteName('#__jobApplications'));
-		$query->select($db->quoteName(array('fileType', 'fileContent')));
+		$query->select($db->quoteName('fileName'));
 		$query->where($db->quoteName('id'). " = " . "$input");
 
 		$db->setQuery($query);

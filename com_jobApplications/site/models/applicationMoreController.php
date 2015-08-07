@@ -23,20 +23,20 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 		// Check if file was uploaded
 		if ( isset($input[5]) )
 		{
-			if ($this->checkExtension($input[5]))
+			if ($this->checkExtension($input[5]) && $this->checkFileSize($input[5]))
 			{
 				// Rename file for security 
 				$temp = explode(".", $input[5]['name']); 
 				$newname = round(microtime(true)) . '.' . end($temp);
 
-				$uploadDirectory = 'administrator/components/com_jobapplications/uploads';
-				$uploadFile = $uploadDirectory . basename($input[5]['name']) ; 
+				$uploadDirectory = 'administrator/components/com_jobapplications/uploads/';
+				$uploadFile = $uploadDirectory . basename($newname) ; 
 
 				echo $uploadFile; 
 
 				if (move_uploaded_file($input[5]['tmp_name'], $uploadFile))
 				{
-					echo " file is valid and uploaded to directory";
+					echo " File is valid and uploaded to directory";
 				} else {
 					echo "file not uploaded"; 
 				}
@@ -49,7 +49,6 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 					$db->quoteName('fileName') . ' =' . $db->quote($newname),
 					$db->quoteName('fileType') . ' =' . $db->quote((string)$input[5]['type']),
 					$db->quoteName('fileSize') . ' = ' . $db->quote((string)$input[5]['size']),
-					//$db->quoteName('fileContent') . ' = ' . $db->quote($content)
 					);
 
 			} else {
@@ -75,14 +74,10 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 
 	// Check if its a valid extension, 
 	// Return true if its, pdf, doc or txt
-	public function checkExtension($input)
+	private function checkExtension($input)
 	{
-		var_dump($input); 
-
 		$finfo = new finfo();
 		$fileinfo = $finfo->file($input['tmp_name'], FILEINFO_MIME_TYPE);
-
-		var_dump($fileinfo); 
 
 		// file types dont match
 		if ( $fileinfo != $input['type']){
@@ -107,5 +102,30 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 				return false;
 				break;
 		}
+	}
+
+	// Check if file size 
+	// Return false if its bigger than 1024 kilo
+	private function checkFileSize($input)
+	{	
+		if ($input['size'] < 1024000)
+			return true;
+		return false;
+	}
+
+	// TODO
+	// Check the referer is its own site
+	// Return true if its myself
+	private function checkReferer()
+	{
+		return false;
+	}
+
+	// TODO
+	// Change permissions to read only
+	// Returns true after executing
+	private function changePermissions()
+	{
+		return false;
 	}
 }
