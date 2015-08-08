@@ -14,7 +14,7 @@ jimport('joomla.filesystem.file');
  * @since  0.0.2
  */
 
-class jobapplicationsModelapplicationMoreController extends JModelList
+class jobapplicationsModelapplicationmorecontroller extends JModelList
 {
 	public function addMoreInfoToDB($input, $id)
 	{
@@ -40,7 +40,7 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 					if ( JFile::exists($filepath))
 					{
 						// Change permissions to read only for security 
-						chmod($filepath, 0440);
+						chmod($filepath, 0444);
 						//echo "File uploaded successfully";
 					}
 				} else {

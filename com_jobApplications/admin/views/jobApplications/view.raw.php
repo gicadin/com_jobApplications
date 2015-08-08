@@ -10,7 +10,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.1
  */
-class jobapplicationsViewjobApplications extends JViewLegacy
+class jobapplicationsViewjobapplications extends JViewLegacy
       
 {
 	/**

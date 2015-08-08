@@ -11,7 +11,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.2
  */
-class jobApplicationsModeljobApplication extends JModelList
+class jobapplicationsModeljobapplication extends JModelList
 {
 	/**
 	 * Method to build an SQL query to load the list data.

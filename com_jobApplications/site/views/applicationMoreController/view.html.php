@@ -6,7 +6,7 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-class jobapplicationsViewapplicationMoreController extends JViewLegacy
+class jobapplicationsViewapplicationmorecontroller extends JViewLegacy
 {
 	function display($tpl = null)
 	{
