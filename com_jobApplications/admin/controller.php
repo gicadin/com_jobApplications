@@ -7,6 +7,8 @@ defined('_JEXEC') or die('Restricted access');
  
 // import Joomla controller library
 jimport('joomla.application.component.controller');
+jimport('joomla.filesystem.file');
+jimport('joomla.filesystem.folder');
 
 /**
  * General Controller of jobApplications component
@@ -53,7 +55,32 @@ class jobApplicationsController extends JControllerLegacy
        	{
        		// remove that application from database
        		$db = JFactory::getDbo();
+
 			$query = $db->getQuery(true);
+
+			$query->from($db->quoteName('#__jobApplications'));
+			$query->select($db->quoteName('fileName'));
+			$query->where($db->quoteName('id') . ' = ' . "$id");
+
+			// Return resume file name
+			$db->setQuery($query);
+			$fileName = $db->loadResult();
+
+			$filePath = JPATH_ROOT . '/administrator/components/com_jobapplications/uploads/' . basename($fileName);
+			
+			// remove file from system
+			if ( !empty($fileName) )
+			{
+				if (JFile::exists($filePath)) {
+					JFile::delete($filePath);
+					echo "File deleted";
+				} else 
+					echo "File is there, Error deleting!";
+			} else 
+				echo "No resume attached."; 
+
+			$query = $db->getQuery(true);
+			$query->clear();
 
 			$conditions = array(
 			    $db->quoteName('id') . "= $id", 
@@ -65,7 +92,7 @@ class jobApplicationsController extends JControllerLegacy
 			$db->setQuery($query);			 
 			$result = $db->execute();
 
-			echo "muie tro lo lo";
+			echo "Profile deleted!";
        	} 
   
         $mainframe->close();

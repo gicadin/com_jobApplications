@@ -16,11 +16,11 @@ class jobapplicationsViewapplicationMoreController extends JViewLegacy
 			$input = array($_POST['experience'], $_POST['referedBy'], $_POST['summary'],
 						$_POST['education'], $_POST['skills'],
 						$_FILES['file']);
-			echo "debugging: file was uploaded!";
+			//echo "debugging: file was uploaded!";
 		} else {
 			$input = array($_POST['experience'], $_POST['referedBy'], $_POST['summary'],
 						$_POST['education'], $_POST['skills'] );	
-			echo "debugging: file was NOT uploaded!";
+			//echo "debugging: file was NOT uploaded!";
 		}
 
 		$model = $this->getModel();

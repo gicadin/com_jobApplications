@@ -6,6 +6,7 @@
  */
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+jimport('joomla.filesystem.file');
  
 /**
  * jobApplications Model
@@ -30,15 +31,20 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 				$newname = round(microtime(true)) . '.' . end($temp);
 
 				$uploadDirectory = 'administrator/components/com_jobapplications/uploads/';
-				$uploadFile = $uploadDirectory . basename($newname) ; 
+				$uploadFile = $uploadDirectory . basename($newname) ;
 
-				echo $uploadFile; 
+				$filepath = JPATH_ROOT . '/administrator/components/com_jobapplications/uploads/' . basename($newname); 
 
 				if (move_uploaded_file($input[5]['tmp_name'], $uploadFile))
 				{
-					echo " File is valid and uploaded to directory";
+					if ( JFile::exists($filepath))
+					{
+						// Change permissions to read only for security 
+						chmod($filepath, 0440);
+						//echo "File uploaded successfully";
+					}
 				} else {
-					echo "file not uploaded"; 
+					echo "File not uploaded"; 
 				}
 
 				$fields = array( $db->quoteName('experience') . ' = ' . $db->quote((string)$input[0]),
@@ -69,7 +75,7 @@ class jobapplicationsModelapplicationMoreController extends JModelList
 		$db->setQuery($query);
 		$db->execute(); 
 
-		echo "DEBUGGING: file uploaded to database"; 
+		//echo "DEBUGGING: file uploaded to database"; 
 	}
 
 	// Check if its a valid extension, 
