@@ -59,6 +59,7 @@
 			<folder>tables</folder> 
 			<!-- SQL files section -->
 			<folder>sql</folder>
+			<folder>uploads</folder>
 		</files>
 	</administration>
  
