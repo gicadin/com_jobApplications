@@ -5,9 +5,27 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 
-$link = JRoute::_('index.php?option=com_jobapplications&view=jobApplication');
+$jobApplicationLink = JRoute::_('index.php?option=com_jobapplications&view=jobApplication');
+$filteredApplicationsLink = JRoute::_('index.php?option=com_jobapplications&view=filteredApplications'); 
 
-// Displays the last 100 applications	
+?>
+
+<div class='container'>
+	<div class='row'>
+		<form action='<?php echo (string)$filteredApplicationsLink; ?>' method='POST' id="adminForm">
+			<input type="text" name="searchInput" size="20">
+			<select name="column">
+				<option value="name">Name</option>
+				<option value="skills">Skills</option>
+				<option value="resume">Resume</option>
+			</select>
+			<input type="submit" value="search">
+		</form>
+	</div>
+</div><!-- container --> 
+
+<?php
+
 for($i = $this->numOfRows-1; $i >= 0; $i--)
 {	
 
@@ -52,7 +70,7 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 		echo "<div class='span12 align-right'>";
 		
 	?>
-		<form action="<?php echo $link; ?>" method="POST">
+		<form action="<?php echo $jobApplicationLink; ?>" method="POST">
 		<input type="hidden" name="id" value="<?php echo (int)$this->results[$i]->id; ?>">
 	
 		<button type='button' class='btn btn-default' style='float:right;' onclick='ajaxDeleteEvent(<?php echo (int)$this->results[$i]->id; ?>)'>Delete</button>
@@ -103,7 +121,7 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 
 <?php
 	/*
-	$link = JRoute::_('index.php?option=com_jobApplications&task=jobAppications.edit&id=' . $row->id);
+	$jobApplicationLink = JRoute::_('index.php?option=com_jobApplications&task=jobAppications.edit&id=' . $row->id);
 	echo JHtml::_('form.token');
 	*/
 ?>
