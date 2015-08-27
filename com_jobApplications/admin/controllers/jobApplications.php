@@ -5,8 +5,8 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-// import Joomla 
-jimport('joomla.application.component.controller');
+// import Joomla controlleradmin library
+jimport('joomla.application.component.controlleradmin');
 
 class jobapplicationsControllerjobapplications extends JControllerAdmin
 {
@@ -35,7 +35,5 @@ class jobapplicationsControllerjobapplications extends JControllerAdmin
 		$db->execute(); 
 
 		$mainframe->close(); 
-
-
 	}
 }

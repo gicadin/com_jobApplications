@@ -9,7 +9,7 @@ $jobApplicationLink = JRoute::_('index.php?option=com_jobapplications&view=jobAp
 $filteredApplicationsLink = JRoute::_('index.php?option=com_jobapplications&view=filteredApplications'); 
 
 ?>
-
+<!--
 <div class='container'>
 	<div class='row'>
 		<form action='<?php echo (string)$filteredApplicationsLink; ?>' method='POST' id="adminForm">
@@ -22,7 +22,7 @@ $filteredApplicationsLink = JRoute::_('index.php?option=com_jobapplications&view
 			<input type="submit" value="search">
 		</form>
 	</div>
-</div><!-- container --> 
+</div> container --> 
 
 <?php
 
@@ -91,8 +91,17 @@ for($i = $this->numOfRows-1; $i >= 0; $i--)
 	//print_r($this->results[$i]->fname);
 	//print_r($this->results["$i"]);
 	*/
+
 }
 ?>
+
+<form action="<?php echo JRoute::_('index.php?option=com_jobapplications&view=jobApplications'); ?>" method="post" name="adminForm" id="adminForm">
+	
+	<!-- <input type="hidden" name="boxchecked" value="0" /> --> 
+	<input type="hidden" name="task" value="" />
+
+<?php echo JHtml::_('form.token'); ?>
+</form> 
 
 <script>
 	function ajaxDeleteEvent(finput)

@@ -13,12 +13,22 @@ jimport('joomla.filesystem.folder');
 /**
  * General Controller of jobApplications component
  */
-class jobApplicationsController extends JControllerLegacy
+class jobapplicationsController extends JControllerLegacy
 {
 	/**
 	 * The default view for the display method.
 	 */
 	protected $default_view = 'jobApplications';
+	
+	function display($cachable = false, $urlparams = false)
+	{
+		$app 	= JFactory::getApplication(); 
+		$view 	= $app->input->getCmd('view', 'jobapplications');
+		$app->input->set('view', $view);
+
+		return parent::display($cachable, $urlparams); 
+	}
+
 	/*
 	public function display($cachable = false, $urlparams = false)
 	{
@@ -27,20 +37,6 @@ class jobApplicationsController extends JControllerLegacy
 		$app->input->set('view', $view);
 		parent::display($cachable, $urlparams);
 		return $this;
-	}
-
-	public function execute()
-	{
-		$task = JFactory::getApplication()->input->get('task');
-		echo "muie"; 
-		try
-		{
-			parent::execute($task);
-		}
-		catch (Exception $e)
-		{
-			echo new JResponseJson($e); 
-		}
 	}
 
 	*/

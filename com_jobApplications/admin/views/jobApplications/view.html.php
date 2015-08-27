@@ -4,7 +4,8 @@
  
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
- 
+
+jimport('joomla.application.component.view');
 /**
  * jobApplications view
  *
@@ -57,6 +58,6 @@ class jobapplicationsViewjobapplications extends JViewLegacy
 	protected function addToolBar()
 	{
 		JToolBarHelper::title(JText::_("Job Applications"));
-		
+		JToolBarHelper::custom('jobapplications.addApplicationToDB', 'generic.png', 'generic.png', 'Add to DB', false); 
 	}
 }
